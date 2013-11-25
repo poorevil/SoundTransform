@@ -41,6 +41,11 @@
 		C15BAF81184305AA00690D74 /* photo_cell_alpha_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = C15BAF80184305AA00690D74 /* photo_cell_alpha_cover.png */; };
 		C15BAF841843288100690D74 /* TableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C15BAF831843288100690D74 /* TableViewCellFactory.m */; };
 		C15BAF8C1843339D00690D74 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C15BAF8A1843339D00690D74 /* MSCMoreOptionTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C15BAF951843404800690D74 /* WaveTransMetadata.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15BAF941843404800690D74 /* WaveTransMetadata.mm */; };
+		C15BAFA41843700300690D74 /* play_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C15BAFA21843700300690D74 /* play_btn.png */; };
+		C15BAFA51843700300690D74 /* play_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C15BAFA31843700300690D74 /* play_btn@2x.png */; };
+		C15BAFB01843718500690D74 /* play_beep.png in Resources */ = {isa = PBXBuildFile; fileRef = C15BAFAE1843718500690D74 /* play_beep.png */; };
+		C15BAFB11843718500690D74 /* play_beep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C15BAFAF1843718500690D74 /* play_beep@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +101,12 @@
 		C15BAF831843288100690D74 /* TableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellFactory.m; sourceTree = "<group>"; };
 		C15BAF891843339D00690D74 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
 		C15BAF8A1843339D00690D74 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
+		C15BAF931843404800690D74 /* WaveTransMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveTransMetadata.h; sourceTree = "<group>"; };
+		C15BAF941843404800690D74 /* WaveTransMetadata.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WaveTransMetadata.mm; sourceTree = "<group>"; };
+		C15BAFA21843700300690D74 /* play_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_btn.png; sourceTree = "<group>"; };
+		C15BAFA31843700300690D74 /* play_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_btn@2x.png"; sourceTree = "<group>"; };
+		C15BAFAE1843718500690D74 /* play_beep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_beep.png; sourceTree = "<group>"; };
+		C15BAFAF1843718500690D74 /* play_beep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_beep@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +237,10 @@
 		C15BAF52183F5DEF00690D74 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C15BAFAE1843718500690D74 /* play_beep.png */,
+				C15BAFAF1843718500690D74 /* play_beep@2x.png */,
+				C15BAFA21843700300690D74 /* play_btn.png */,
+				C15BAFA31843700300690D74 /* play_btn@2x.png */,
 				C15BAF80184305AA00690D74 /* photo_cell_alpha_cover.png */,
 				C15BAF7A1842FFD200690D74 /* audio_bg.png */,
 				C15BAF781842FF3700690D74 /* binary_bg.png */,
@@ -241,6 +256,8 @@
 		C15BAF59183F686500690D74 /* tmp */ = {
 			isa = PBXGroup;
 			children = (
+				C15BAF931843404800690D74 /* WaveTransMetadata.h */,
+				C15BAF941843404800690D74 /* WaveTransMetadata.mm */,
 				C15BAF5A183F687500690D74 /* stockvault-autumn-foliage148211.jpg */,
 				C15BAF5B183F687500690D74 /* stockvault-cracked-handicap-sign133690.jpg */,
 				C15BAF5C183F687500690D74 /* stockvault-students113094.jpg */,
@@ -335,16 +352,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15BAF2F183F56ED00690D74 /* Images.xcassets in Resources */,
+				C15BAFB01843718500690D74 /* play_beep.png in Resources */,
 				C15BAF771842FF2300690D74 /* BinaryCell.xib in Resources */,
 				C15BAF61183F687500690D74 /* stockvault-sweet-delicious-fruit109569.jpg in Resources */,
 				C15BAF21183F56ED00690D74 /* InfoPlist.strings in Resources */,
 				C15BAF711842ED0900690D74 /* VideoCell.xib in Resources */,
+				C15BAFA51843700300690D74 /* play_btn@2x.png in Resources */,
 				C15BAF731842EF0900690D74 /* TextCell.xib in Resources */,
 				C15BAF54183F5E0100690D74 /* tableview_sep_line.png in Resources */,
 				C15BAF2A183F56ED00690D74 /* Main.storyboard in Resources */,
 				C15BAF7B1842FFD200690D74 /* audio_bg.png in Resources */,
 				C15BAF81184305AA00690D74 /* photo_cell_alpha_cover.png in Resources */,
+				C15BAFA41843700300690D74 /* play_btn.png in Resources */,
 				C15BAF6D1842E87A00690D74 /* AudioCell.xib in Resources */,
+				C15BAFB11843718500690D74 /* play_beep@2x.png in Resources */,
 				C15BAF56183F62CA00690D74 /* tableview_sep_line@2x.png in Resources */,
 				C15BAF5E183F687500690D74 /* stockvault-autumn-foliage148211.jpg in Resources */,
 				C15BAF791842FF3700690D74 /* binary_bg.png in Resources */,
@@ -378,6 +399,7 @@
 				C15BAF4F183F5A6D00690D74 /* MainTableViewCell.m in Sources */,
 				C15BAF841843288100690D74 /* TableViewCellFactory.m in Sources */,
 				C15BAF23183F56ED00690D74 /* main.m in Sources */,
+				C15BAF951843404800690D74 /* WaveTransMetadata.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,10 +527,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruce Chen (KKYLDFR684)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoundTransform/SoundTransform-Prefix.pch";
 				INFOPLIST_FILE = "SoundTransform/SoundTransform-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B04D3B55-C164-4FAF-B582-F7D94F403D99";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -519,10 +543,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruce Chen (KKYLDFR684)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoundTransform/SoundTransform-Prefix.pch";
 				INFOPLIST_FILE = "SoundTransform/SoundTransform-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B04D3B55-C164-4FAF-B582-F7D94F403D99";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

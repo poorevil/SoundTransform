@@ -10,18 +10,18 @@
 
 @class MainTableViewCell;
 
-typedef NS_ENUM(NSInteger, TableViewCellType) {
-    TableViewCellTypeBinary,        //二进制文件
-    TableViewCellTypeText,          //文本文件
-    TableViewCellTypePhoto,         //图片
-    TableViewCellTypeAudio,         //音频
-    TableViewCellTypeVideo          //视频
+typedef NS_ENUM(NSInteger, MetaDataFileType) {
+    MetaDataFileTypeBinary,        //二进制文件
+    MetaDataFileTypeText,          //文本文件
+    MetaDataFileTypePhoto,         //图片
+    MetaDataFileTypeAudio,         //音频
+    MetaDataFileTypeVideo          //视频
 
 };
 
 @interface TableViewCellFactory : NSObject
 
-+(MainTableViewCell *)getTableViewCellByCellType:(TableViewCellType)tableViewCellType
++(MainTableViewCell *)getTableViewCellByCellType:(MetaDataFileType)tableViewCellType
                                        tableView:(UITableView *)tableView
                                            owner:(id)owner;
 

@@ -11,31 +11,31 @@
 
 @implementation TableViewCellFactory
 
-+(MainTableViewCell *)getTableViewCellByCellType:(TableViewCellType)tableViewCellType
++(MainTableViewCell *)getTableViewCellByCellType:(MetaDataFileType)metaDataFileType
                                        tableView:(UITableView *)tableView
                                            owner:(id)owner
 {
     NSString *identifier = nil;
     
-    switch (tableViewCellType) {
+    switch (metaDataFileType) {
         
-        case TableViewCellTypeBinary:
+        case MetaDataFileTypeBinary:
         identifier = @"BinaryCell";
         break;
         
-        case TableViewCellTypeText:
+        case MetaDataFileTypeText:
         identifier = @"TextCell";
         break;
         
-        case TableViewCellTypePhoto:
+        case MetaDataFileTypePhoto:
         identifier = @"PhotoCell";
         break;
         
-        case TableViewCellTypeAudio:
+        case MetaDataFileTypeAudio:
         identifier = @"AudioCell";
         break;
         
-        case TableViewCellTypeVideo:
+        case MetaDataFileTypeVideo:
         identifier = @"VideoCell";
         break;
         

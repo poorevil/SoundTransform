@@ -10,10 +10,11 @@
 #import "MainTableViewCell.h"
 #import "TableViewCellFactory.h"
 #import "MSCMoreOptionTableViewCell.h"
+#import "WaveTransMetadata.h"
 
-@interface ViewController () <UITableViewDataSource,UITableViewDelegate,MSCMoreOptionTableViewCellDelegate>
+@interface ViewController () <UITableViewDataSource,UITableViewDelegate,MSCMoreOptionTableViewCellDelegate,UIActionSheetDelegate>
 
-@property (nonatomic,retain) NSArray *xibArray;
+@property (nonatomic,retain) NSMutableArray *metadataList;
 
 @end
 
@@ -24,7 +25,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.xibArray = [NSArray arrayWithObjects:@"BinaryCell",@"TextCell",@"PhotoCell",@"AudioCell",@"VideoCell",nil];
+    self.metadataList = [NSMutableArray array];
+    
+    /*
+     *  测试数据
+     */
+    WaveTransMetadata *wtmd = nil;
+    
+    for (int i = 0; i<11; i++) {
+        wtmd = [[[WaveTransMetadata alloc] init] autorelease];
+        wtmd.metaDataFileType = i % 5;
+        [self.metadataList addObject:wtmd];
+    }
+    /*
+     *  测试数据
+     */
     
     
     self.mTableView = [[UITableView alloc] initWithFrame:self.view.frame];
@@ -47,7 +62,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;//TODO:
+    return self.metadataList.count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,19 +77,33 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // Called when "DELETE" button is pushed.
     NSLog(@"DELETE button pushed in row at: %@", indexPath.description);
+    //TODO:删除按钮
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WaveTransMetadata *wt =[self.metadataList objectAtIndex:indexPath.row];
     
-    MainTableViewCell *cell = [TableViewCellFactory getTableViewCellByCellType:TableViewCellTypeText
+    MainTableViewCell *cell = [TableViewCellFactory getTableViewCellByCellType:wt.metaDataFileType
                                                                      tableView:tableView owner:self];
-    if (cell == nil) {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:indentifier owner:self options:nil] objectAtIndex:0];
-        //TODO:默认cell
-    }
     
     return cell;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+        return @"今天";
+        case 1:
+        return @"昨天";
+        case 2:
+        return @"前天";
+        case 3:
+        return @"星期四";
+    }
+    
+    return @"一周前";
 }
 
 
@@ -77,6 +111,41 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 100;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)] autorelease];
+    header.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, 100, 20)];
+    [header addSubview:titleLabel];
+    
+    switch (section) {
+        case 0:
+        titleLabel.text = @"今天";
+        break;
+        
+        case 1:
+        titleLabel.text = @"昨天";
+        break;
+        
+        case 2:
+        titleLabel.text = @"前天";
+        break;
+        
+        case 3:
+        titleLabel.text = @"星期四";
+        break;
+        
+        //TODO:......
+        
+        default:
+        titleLabel.text = @"一周以前";
+        break;
+    }
+    
+    return header;
 }
 
 
@@ -88,13 +157,11 @@
     return @"Delete";
 }
 
-////////////////////////////////////////////////////////////////////////
 #pragma mark - MSCMoreOptionTableViewCellDelegate
-////////////////////////////////////////////////////////////////////////
-
 - (void)tableView:(UITableView *)tableView moreOptionButtonPressedInRowAtIndexPath:(NSIndexPath *)indexPath {
     // Called when "MORE" button is pushed.
     NSLog(@"MORE button pushed in row at: %@", indexPath.description);
+    [self showMoreActionSheet:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForMoreOptionButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,4 +172,24 @@
     return [UIColor colorWithRed:0.18f green:0.67f blue:0.84f alpha:1.0f];
 }
 
+#pragma mark - actionSheet
+-(void)showMoreActionSheet:(NSIndexPath *)indexPath
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:@"删除"
+                                                    otherButtonTitles:@"用其他软件打开",@"分享",@"详细",nil];
+    
+    [actionSheet showInView:self.view];
+    [actionSheet release];
+}
+
+#pragma mark - UIActionSheetDelegate <NSObject>
+
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //TODO:action sheet 更多按钮
+}
 @end
